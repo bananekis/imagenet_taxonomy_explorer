@@ -4,8 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "node dist/src/index.js",
-    "healthcheckPath": "/api/health",
+    "startCommand": "echo 'Starting node...' && node dist/src/index.js",
     "restartPolicyType": "ON_FAILURE"
   }
 }

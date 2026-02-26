@@ -4,7 +4,7 @@
     "builder": "NIXPACKS"
   },
   "deploy": {
-    "startCommand": "npx prisma db push && node dist/scripts/ingest.js && node dist/src/index.js",
+    "startCommand": "npx prisma db push && node dist/scripts/ingest.js & node dist/src/index.js",
     "healthcheckPath": "/api/health",
     "restartPolicyType": "ON_FAILURE"
   }

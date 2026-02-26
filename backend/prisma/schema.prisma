@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Node {
+  id         Int     @id @default(autoincrement())
+  wnid       String  @unique
+  name       String
+  shortName  String
+  size       Int
+  depth      Int
+  parentId   Int?
+  parentWnid String?
+
+  parent   Node?  @relation("tree", fields: [parentId], references: [id])
+  children Node[] @relation("tree")
+
+  @@index([parentId])
+  @@index([shortName])
+}
